@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../services/auth_service.dart';
 import '../theme/app_palette.dart';
 import '../widgets/primary_card.dart';
+import 'chat_screen.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key, required this.auth});
@@ -42,6 +43,21 @@ class HomeView extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   color: Theme.of(context).hintColor,
                 ),
+          ),
+          const SizedBox(height: 18),
+          FilledButton.icon(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => const ChatScreen(),
+                ),
+              );
+            },
+            style: FilledButton.styleFrom(
+              minimumSize: const Size.fromHeight(52),
+            ),
+            icon: const Icon(Icons.chat_bubble_outline_rounded),
+            label: const Text('শেখার জায়গায় যান (চ্যাট)'),
           ),
           const SizedBox(height: 18),
           PrimaryCard(
